@@ -11,10 +11,8 @@ class TurnUserAdminController {
       const userUpdated = this.turnUserAdminUseCase.execute({ user_id });
 
       return response.json(userUpdated);
-    } catch (error) {
-      return response
-        .status(404)
-        .json({ error: "Something happen in your UserController or UseCase." });
+    } catch ({ message }) {
+      return response.status(404).json({ error: message });
     }
   }
 }

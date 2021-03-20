@@ -30,6 +30,8 @@ class UsersRepository implements IUsersRepository {
 
     this.users.push(user);
 
+    console.log({ users: this.users });
+
     return user;
   }
 
@@ -44,8 +46,6 @@ class UsersRepository implements IUsersRepository {
 
   turnAdmin(receivedUser: User): User {
     const userAdmin = Object.assign(receivedUser, { admin: true });
-
-    this.users.push(userAdmin);
 
     return userAdmin;
   }

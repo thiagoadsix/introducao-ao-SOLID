@@ -16,12 +16,10 @@ class ListAllUsersUseCase {
     }
 
     if (userAlreadyExists.admin === false) {
-      throw new Error("User does not have permission");
+      throw new Error("User does not have permission.");
     }
 
-    const userList = this.usersRepository.list();
-
-    return userList;
+    return this.usersRepository.list();
   }
 }
 

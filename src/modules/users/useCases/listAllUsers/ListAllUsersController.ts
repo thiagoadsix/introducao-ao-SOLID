@@ -14,10 +14,8 @@ class ListAllUsersController {
       });
 
       return response.json(user);
-    } catch (error) {
-      return response
-        .status(400)
-        .json({ error: "Something happen in your UserController or UseCase." });
+    } catch ({ message }) {
+      return response.status(400).json({ error: message });
     }
   }
 }

@@ -9,16 +9,14 @@ class CreateUserController {
     try {
       const { name, email } = request.body;
 
-      const { admin } = this.createUserUseCase.execute({
+      const user = this.createUserUseCase.execute({
         name,
         email,
       });
 
-      return response.status(201).json({ admin, email, name });
-    } catch (error) {
-      return response
-        .status(400)
-        .json({ error: "Something happen in your UserController or UseCase." });
+      return response.status(201).json(user);
+    } catch ({ message }) {
+      return response.status(400).json({ error: message });
     }
   }
 }

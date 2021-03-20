@@ -14,7 +14,7 @@ class TurnUserAdminUseCase {
     if (!userExists) throw new Error("This users doesn't exists.");
 
     if (userExists.admin === true)
-      throw new Error("this user is already an admin.");
+      throw new Error("This user is already an admin.");
 
     const user = this.usersRepository.turnAdmin(userExists);
 
